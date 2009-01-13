@@ -216,11 +216,8 @@ RubyArrayIterate(VALUE elem,
   VALUE status = 0;
   
   /* Create new class instance */
-  status = rb_funcall(elem, rb_intern("new"), 0, NULL);
-  if(!status)
-    {
-      subSharedLogWarn("Failed running sublet\n");
-    }
+  if(!(status = rb_funcall(elem, rb_intern("new"), 0, NULL)))
+    subSharedLogWarn("Failed running sublet\n");
 
   return Qnil;
 } /* }}} */
@@ -459,10 +456,11 @@ subRubyLoadConfig(const char *file)
 
  /** subRubyLoadSublets {{{
   * @brief Load sublets from path
+  * @param[in]  path  Path of the sublets
   **/
 
 void
-subRubyLoadSublets(void)
+subRubyLoadSublets(const char *path)
 {
   int i, num;
   DIR *dir = NULL;
@@ -476,12 +474,19 @@ subRubyLoadSublets(void)
     {
       subSharedLogWarn("Failed initing inotify\n");
       subSharedLogDebug("Inotify: %s\n", strerror(errno));
+      return;
     }
   else fcntl(subtle->notify, F_SETFL, O_NONBLOCK);
 #endif /* HAVE_SYS_INOTIFY_H */
 
-  /* Build path */
-  snprintf(buf, sizeof(buf), "%s/.%s/sublets", getenv("HOME"), PKG_NAME);
+  /* Check path */
+  if(!path)
+    {
+      snprintf(buf, sizeof(buf), "%s/.%s/sublets", getenv("HOME"), PKG_NAME);
+      if((dir = opendir(buf))) closedir(dir);
+      else snprintf(buf, sizeof(buf), "%s", DIR_SUBLET);
+    }
+  else snprintf(buf, sizeof(buf), "%s", path);
   subSharedLogDebug("path=%s\n", buf);
 
   /* Scan directory */
@@ -533,7 +538,14 @@ subRubyRun(SubSublet *s)
   rb_protect(RubyProtectedRun, s->recv, &status);
   if(Qundef == status)
     {
+      VALUE lasterr = Qnil, message = Qnil;
+      
+      /* Get last error message */
+      lasterr = rb_gv_get("$!");
+      message = rb_obj_as_string(lasterr);
+
       subSharedLogWarn("Failed running sublet\n");
+      if(RTEST(message)) subSharedLogDebug("%s\n", RSTRING(message)->ptr);
       subArrayPop(subtle->sublets, (void *)s);
       subSubletKill(s);
     }
