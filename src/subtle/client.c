@@ -552,7 +552,8 @@ subClientWarp(SubClient *c)
   assert(c);
 
   /* Move pointer to window center */
-  if(!(subtle->flags & SUB_SUBTLE_CLICK_TO_FOCUS))
+  if(!(subtle->flags & SUB_SUBTLE_CLICK_TO_FOCUS) && \
+      (subtle->flags & SUB_SUBTLE_POINTER_WARP))
     XWarpPointer(subtle->dpy, None, ROOT, 0, 0, 0, 0,
       c->geom.x + c->geom.width / 2, c->geom.y + c->geom.height / 2);
 } /* }}} */

@@ -40,6 +40,9 @@ set :gravity_tiling, false
 # Enable click-to-focus focus model
 set :click_to_focus, false
 
+# Move cursor to center
+set :pointer_warp, true
+
 # Set the WM_NAME of subtle (Java quirk)
 # set :wmname, "LG3D"
 

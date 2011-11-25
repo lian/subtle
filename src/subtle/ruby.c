@@ -1898,6 +1898,11 @@ RubyConfigSet(VALUE self,
                 if(!(subtle->flags & SUB_SUBTLE_CHECK) && Qtrue == value)
                   subtle->flags |= SUB_SUBTLE_CLICK_TO_FOCUS;
               }
+            else if(CHAR2SYM("pointer_warp") == option)
+              {
+                if(!(subtle->flags & SUB_SUBTLE_CHECK) && Qtrue == value)
+                  subtle->flags |= SUB_SUBTLE_POINTER_WARP;
+              }
             else subSubtleLogWarn("Cannot find option `:%s'\n",
               SYM2CHAR(option));
             break; /* }}} */
