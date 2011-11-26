@@ -780,6 +780,25 @@ subClientFlagsAskZaphod(VALUE self)
   return ClientFlagsGet(self, SUB_EWMH_ZAPHOD);
 } /* }}} */
 
+/* subClientFlagsAskNoSnap {{{ */
+/*
+ * call-seq: is_nosnap? -> true or false
+ *
+ * Check if Client is nosnap.
+ *
+ *  client.is_nosnap?
+ *  => true
+ *
+ *  client.is_nosnap?
+ *  => false
+ */
+
+VALUE
+subClientFlagsAskNoSnap(VALUE self)
+{
+  return ClientFlagsGet(self, SUB_EWMH_NOSNAP);
+} /* }}} */
+
 /* subClientFlagsAskFixed {{{ */
 /*
  * call-seq: is_fixed? -> true or false
@@ -914,6 +933,22 @@ subClientFlagsToggleZaphod(VALUE self)
   return ClientFlagsSet(self, SUB_EWMH_ZAPHOD, True);
 } /* }}} */
 
+/* subClientFlagsToggleNoSnap {{{ */
+/*
+ * call-seq: toggle_nosnap -> Subtlext::Client
+ *
+ * Toggle Client nosnap state.
+ *
+ *  client.toggle_nosnap
+ *  => nil
+ */
+
+VALUE
+subClientFlagsToggleNoSnap(VALUE self)
+{
+  return ClientFlagsSet(self, SUB_EWMH_NOSNAP, True);
+} /* }}} */
+
 /* subClientFlagsToggleFixed {{{ */
 /*
  * call-seq: toggle_fixed -> Subtlext::Client
@@ -985,6 +1020,7 @@ subClientFlagsWriter(VALUE self,
           else if(CHAR2SYM("resize")     == entry) flags |= SUB_EWMH_RESIZE;
           else if(CHAR2SYM("urgent")     == entry) flags |= SUB_EWMH_URGENT;
           else if(CHAR2SYM("zaphod")     == entry) flags |= SUB_EWMH_ZAPHOD;
+          else if(CHAR2SYM("nosnap")     == entry) flags |= SUB_EWMH_NOSNAP;
           else if(CHAR2SYM("fixed")      == entry) flags |= SUB_EWMH_FIXED;
           else if(CHAR2SYM("borderless") == entry) flags |= SUB_EWMH_BORDERLESS;
         }

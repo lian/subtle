@@ -383,6 +383,9 @@ grab "W-s", :WindowStick
 # Toggle zaphod mode of window (will span across all screens)
 grab "W-equal", :WindowZaphod
 
+# Toggle nosnap mode of window
+grab "W-b", :WindowNoSnap
+
 # Raise window
 grab "W-r", :WindowRaise
 

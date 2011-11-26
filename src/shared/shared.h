@@ -70,6 +70,7 @@
 #define SUB_EWMH_HIDDEN     (1L << 10)                            ///< EWMH hidden flag
 #define SUB_EWMH_HORZ       (1L << 12)                            ///< EWMH horizontal flag
 #define SUB_EWMH_VERT       (1L << 11)                            ///< EWMH vertical flag
+#define SUB_EWMH_NOSNAP     (1L << 13)                            ///< EWMH nosnap flag
 
 /* Match types flags */
 #define SUB_MATCH_NAME      (1L << 0)                             ///< Match SUBTLE_NAME

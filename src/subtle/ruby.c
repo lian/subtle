@@ -630,6 +630,11 @@ RubyEvalGrab(VALUE keys,
                 type = SUB_GRAB_WINDOW_TOGGLE;
                 data = DATA((unsigned long)SUB_CLIENT_MODE_ZAPHOD);
               }
+            else if(CHAR2SYM("WindowNoSnap") == value)
+              {
+                type = SUB_GRAB_WINDOW_TOGGLE;
+                data = DATA((unsigned long)SUB_CLIENT_MODE_NOSNAP);
+              }
             else if(CHAR2SYM("WindowRaise") == value)
               {
                 type = SUB_GRAB_WINDOW_STACK;
@@ -2135,6 +2140,9 @@ RubyConfigTag(int argc,
 
       if(Qtrue == (value = rb_hash_lookup(params,
         CHAR2SYM("zaphod")))) flags |= SUB_CLIENT_MODE_ZAPHOD;
+
+      if(Qtrue == (value = rb_hash_lookup(params,
+        CHAR2SYM("nosnap")))) flags |= SUB_CLIENT_MODE_NOSNAP;
     }
 
   /* Check value type */

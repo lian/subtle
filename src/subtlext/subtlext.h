@@ -68,6 +68,7 @@ VALUE subClientFlagsAskStick(VALUE self);                         ///< Is client
 VALUE subClientFlagsAskResize(VALUE self);                        ///< Is client resize
 VALUE subClientFlagsAskUrgent(VALUE self);                        ///< Is client urgent
 VALUE subClientFlagsAskZaphod(VALUE self);                        ///< Is client zaphod
+VALUE subClientFlagsAskNoSnap(VALUE self);                        ///< Is client nosnap
 VALUE subClientFlagsAskFixed(VALUE self);                         ///< Is client fixed
 VALUE subClientFlagsAskBorderless(VALUE self);                    ///< Is client borderless
 VALUE subClientFlagsToggleFull(VALUE self);                       ///< Toggle fullscreen
@@ -76,6 +77,7 @@ VALUE subClientFlagsToggleStick(VALUE self);                      ///< Toggle st
 VALUE subClientFlagsToggleResize(VALUE self);                     ///< Toggle resize
 VALUE subClientFlagsToggleUrgent(VALUE self);                     ///< Toggle urgent
 VALUE subClientFlagsToggleZaphod(VALUE self);                     ///< Toggle zaphod
+VALUE subClientFlagsToggleNoSnap(VALUE self);                     ///< Toggle nosnap
 VALUE subClientFlagsToggleFixed(VALUE self);                      ///< Toggle fixed
 VALUE subClientFlagsToggleBorderless(VALUE self);                 ///< Toggle borderless
 VALUE subClientFlagsWriter(VALUE self, VALUE value);              ///< Set multiple flags

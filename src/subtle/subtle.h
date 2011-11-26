@@ -230,6 +230,7 @@
 #define SUB_CLIENT_MODE_FIXED         (1L << 22)                  ///< Fixed size mode
 #define SUB_CLIENT_MODE_CENTER        (1L << 23)                  ///< Center position mode
 #define SUB_CLIENT_MODE_BORDERLESS    (1L << 24)                  ///< Borderless
+#define SUB_CLIENT_MODE_NOSNAP        (1L << 31)                  ///< No Snap and Bounds
 
 #define SUB_CLIENT_TYPE_NORMAL        (1L << 25)                  ///< Normal type (also used in match)
 #define SUB_CLIENT_TYPE_DESKTOP       (1L << 26)                  ///< Desktop type
@@ -374,6 +375,7 @@
   (SUB_CLIENT_MODE_FULL|SUB_CLIENT_MODE_FLOAT|   \
   SUB_CLIENT_MODE_STICK|SUB_CLIENT_MODE_URGENT|  \
   SUB_CLIENT_MODE_RESIZE|SUB_CLIENT_MODE_ZAPHOD| \
+  SUB_CLIENT_MODE_NOSNAP|                        \
   SUB_CLIENT_MODE_FIXED|SUB_CLIENT_MODE_BORDERLESS)               ///< All mode flags
 
 /* State action */

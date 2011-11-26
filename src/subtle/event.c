@@ -1111,6 +1111,7 @@ EventMessage(XClientMessageEvent *ev)
                 if(ev->data.l[1] & SUB_EWMH_RESIZE)     flags |= SUB_CLIENT_MODE_RESIZE;
                 if(ev->data.l[1] & SUB_EWMH_URGENT)     flags |= SUB_CLIENT_MODE_URGENT;
                 if(ev->data.l[1] & SUB_EWMH_ZAPHOD)     flags |= SUB_CLIENT_MODE_ZAPHOD;
+                if(ev->data.l[1] & SUB_EWMH_NOSNAP)     flags |= SUB_CLIENT_MODE_NOSNAP;
                 if(ev->data.l[1] & SUB_EWMH_FIXED)      flags |= SUB_CLIENT_MODE_FIXED;
                 if(ev->data.l[1] & SUB_EWMH_BORDERLESS) flags |= SUB_CLIENT_MODE_BORDERLESS;
 

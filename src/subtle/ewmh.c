@@ -330,6 +330,7 @@ subEwmhTranslateClientMode(int client_flags,
   if(client_flags & SUB_CLIENT_MODE_RESIZE)     *flags |= SUB_EWMH_RESIZE;
   if(client_flags & SUB_CLIENT_MODE_URGENT)     *flags |= SUB_EWMH_URGENT;
   if(client_flags & SUB_CLIENT_MODE_ZAPHOD)     *flags |= SUB_EWMH_ZAPHOD;
+  if(client_flags & SUB_CLIENT_MODE_NOSNAP)     *flags |= SUB_EWMH_NOSNAP;
   if(client_flags & SUB_CLIENT_MODE_FIXED)      *flags |= SUB_EWMH_FIXED;
   if(client_flags & SUB_CLIENT_MODE_BORDERLESS) *flags |= SUB_EWMH_BORDERLESS;
 } /* }}} */

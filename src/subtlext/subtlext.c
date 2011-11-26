@@ -1880,6 +1880,7 @@ Init_subtlext(void)
   rb_define_method(client, "is_resize?",        subClientFlagsAskResize,        0);
   rb_define_method(client, "is_urgent?",        subClientFlagsAskUrgent,        0);
   rb_define_method(client, "is_zaphod?",        subClientFlagsAskZaphod,        0);
+  rb_define_method(client, "is_nosnap?",        subClientFlagsAskNoSnap,        0);
   rb_define_method(client, "is_fixed?",         subClientFlagsAskFixed,         0);
   rb_define_method(client, "is_borderless?",    subClientFlagsAskBorderless,    0);
   rb_define_method(client, "toggle_full",       subClientFlagsToggleFull,       0);
@@ -1888,6 +1889,7 @@ Init_subtlext(void)
   rb_define_method(client, "toggle_resize",     subClientFlagsToggleResize,     0);
   rb_define_method(client, "toggle_urgent",     subClientFlagsToggleUrgent,     0);
   rb_define_method(client, "toggle_zaphod",     subClientFlagsToggleZaphod,     0);
+  rb_define_method(client, "toggle_nosnap",     subClientFlagsToggleNoSnap,     0);
   rb_define_method(client, "toggle_fixed",      subClientFlagsToggleFixed,      0);
   rb_define_method(client, "toggle_borderless", subClientFlagsToggleBorderless, 0);
   rb_define_method(client, "flags=",            subClientFlagsWriter,           1);
