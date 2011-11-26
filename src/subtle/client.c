@@ -82,9 +82,6 @@ ClientBounds(SubClient *c,
   DEAD(c);
   assert(c && geom);
 
-  /* Skip if border snap is disabled */
-  if (subtle->flags & SUB_SUBTLE_NO_BORDER_SNAP) return;
-
   /* Skip if client nosnap is enabled */
   if (c->flags & SUB_CLIENT_MODE_NOSNAP) return;
 
@@ -142,9 +139,6 @@ ClientSnap(SubClient *c,
 {
   DEAD(c);
   assert(c && s && geom);
-
-  /* Skip if border snap is disabled */
-  if (subtle->flags & SUB_SUBTLE_NO_BORDER_SNAP) return;
 
   /* Skip if client nosnap is enabled */
   if (c->flags & SUB_CLIENT_MODE_NOSNAP) return;
@@ -423,6 +417,10 @@ subClientNew(Window win)
 
       free(leader);
     }
+
+  /* Set nosnap mode from global boder_snap */
+  if (subtle->flags & SUB_SUBTLE_NO_BORDER_SNAP)
+    c->flags |= SUB_CLIENT_MODE_NOSNAP;
 
   /* EWMH: Gravity, screen, desktop, extents */
   subEwmhSetCardinals(c->win, SUB_EWMH_SUBTLE_CLIENT_GRAVITY,
