@@ -1903,6 +1903,12 @@ RubyConfigSet(VALUE self,
                 if(!(subtle->flags & SUB_SUBTLE_CHECK) && Qtrue == value)
                   subtle->flags |= SUB_SUBTLE_POINTER_WARP;
               }
+            else if(CHAR2SYM("snap") == option ||
+                CHAR2SYM("border_snap") == option)
+              {
+                if(!(subtle->flags & SUB_SUBTLE_CHECK) && Qfalse == value)
+                  subtle->flags |= SUB_SUBTLE_NO_BORDER_SNAP;
+              }
             else subSubtleLogWarn("Cannot find option `:%s'\n",
               SYM2CHAR(option));
             break; /* }}} */

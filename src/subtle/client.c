@@ -82,6 +82,9 @@ ClientBounds(SubClient *c,
   DEAD(c);
   assert(c && geom);
 
+  /* Skip if border snap is disabled */
+  if (subtle->flags & SUB_SUBTLE_NO_BORDER_SNAP) return;
+
   /* Check size hints */
   if(!(c->flags & SUB_CLIENT_MODE_FIXED) &&
       (subtle->flags & SUB_SUBTLE_RESIZE ||
@@ -136,6 +139,9 @@ ClientSnap(SubClient *c,
 {
   DEAD(c);
   assert(c && s && geom);
+
+  /* Skip if border snap is disabled */
+  if (subtle->flags & SUB_SUBTLE_NO_BORDER_SNAP) return;
 
   /* Snap to screen border - X axis */
   if(s->geom.x + subtle->snap > geom->x)

@@ -337,6 +337,7 @@
 #define SUB_SUBTLE_TILING             (1L << 12)                  ///< Enable tiling
 #define SUB_SUBTLE_CLICK_TO_FOCUS     (1L << 13)                  ///< Click to focus
 #define SUB_SUBTLE_POINTER_WARP       (1L << 14)                  ///< Cursor to center
+#define SUB_SUBTLE_NO_BORDER_SNAP     (1L << 15)                  ///< Disable Border Snap
 
 /* Tag flags */
 #define SUB_TAG_GRAVITY               (1L << 10)                  ///< Gravity property
