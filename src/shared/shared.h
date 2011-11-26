@@ -65,7 +65,7 @@
 #define SUB_EWMH_ZAPHOD     (1L << 5)                             ///< EWMH zaphod flag
 #define SUB_EWMH_FIXED      (1L << 6)                             ///< EWMH fixed flag
 #define SUB_EWMH_CENTER     (1L << 7)                             ///< EWMH center flag
-#define SUB_EWMH_BORDERLESS (1L << 8)                             ///< EWMH fixed flag
+#define SUB_EWMH_BORDERLESS (1L << 8)                             ///< EWMH borderless flag
 #define SUB_EWMH_VISIBLE    (1L << 9)                             ///< EWMH visible flag
 #define SUB_EWMH_HIDDEN     (1L << 10)                            ///< EWMH hidden flag
 #define SUB_EWMH_HORZ       (1L << 12)                            ///< EWMH horizontal flag
